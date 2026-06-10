@@ -98,14 +98,15 @@ nav.scrolled{background:rgba(2,13,26,0.88);backdrop-filter:blur(16px);border-bot
 
 /* HERO STATS BAR */
 .hero-stats{
-  display:flex;gap:0;
+  display:flex;gap:0;flex-wrap:nowrap;
   border:1px solid rgba(0,229,200,0.12);
   border-radius:16px;overflow:hidden;
-  margin-bottom:0;
+  margin-bottom:0;width:100%;max-width:540px;
   opacity:0;animation:up 0.8s 0.55s forwards;
 }
 .hstat{
-  padding:18px 32px;
+  flex:1;min-width:0;
+  padding:14px 8px;
   border-right:1px solid rgba(0,229,200,0.08);
   text-align:center;
   background:rgba(0,229,200,0.03);
@@ -113,8 +114,8 @@ nav.scrolled{background:rgba(2,13,26,0.88);backdrop-filter:blur(16px);border-bot
 }
 .hstat:last-child{border-right:none}
 .hstat:hover{background:rgba(0,229,200,0.07)}
-.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--teal);line-height:1}
-.hstat-l{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-top:3px}
+.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,5vw,2.2rem);color:var(--teal);line-height:1}
+.hstat-l{font-size:clamp(0.42rem,1.5vw,0.58rem);letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-top:3px;white-space:nowrap}
 
 /* HERO IMAGE — full width cinematic strip */
 .hero-img-strip{
@@ -339,8 +340,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(238,249,255,0.06);p
   nav{padding:14px 18px}
   .nav-ig span{display:none}
   .hero{padding-top:100px}
-  .hero-stats{flex-wrap:wrap}
-  .hstat{padding:14px 20px}
+  .hstat{padding:12px 6px}
   .motos-grid{grid-template-columns:1fr;max-width:420px}
   .exp-grid{grid-template-columns:1fr}
   .ig-banner{padding:36px 22px}
@@ -605,6 +605,7 @@ function spawnPt(){
   document.body.appendChild(p);setTimeout(()=>p.remove(),23000);
 }
 setInterval(spawnPt,700);
+
 
 
 </script>
